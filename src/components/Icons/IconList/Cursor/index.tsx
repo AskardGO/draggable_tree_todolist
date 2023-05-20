@@ -14,7 +14,7 @@ export const CursorIcon = ({size}: {color?:string, size?:number}) => {
     }, [spanRef])
 
     return (
-        <span ref={spanRef}>
+        <span ref={spanRef} style={{width: size || '16px', height: size || '16px'}}>
             <Cursor
                 style={{fill: 'white'}}
                 width={size??'1rem'}
