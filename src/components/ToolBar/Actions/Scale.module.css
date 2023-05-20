@@ -1,3 +1,39 @@
 .container {
     display: flex;
+    border-radius: .15rem;
+    border: .1rem solid #a4b0be;
+}
+
+.button_minus {
+    margin: .2rem 0;
+    border: 0;
+    border-radius: .15rem 0 0 .15rem;
+    position: relative;
+}
+
+.button_minus::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 80%;
+    width: .1rem;
+    border-radius: .15rem;
+    background-color: #a4b0be;
+}
+
+.button_plus {
+    margin: .2rem 0;
+    border: 0;
+    border-radius: 0 .15rem .15rem 0;
+    position: relative;
+}
+
+.button_plus::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 80%;
+    width: .1rem;
+    border-radius: .15rem;
+    background-color: #a4b0be;
 }
