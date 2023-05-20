@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: calc(100vh - 100px);
+    position: relative;
+    background-color: #f1f2f6;
+    overflow: hidden;
+}
