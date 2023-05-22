@@ -3,12 +3,12 @@ import {Button} from "../../CustomComponents/Button";
 import {CursorIcon} from "../../Icons/IconList/Cursor";
 
 type Props = {
-
+    onClick: () => void
 };
 
-export const CenteredTree = (props: Props) => {
+export const CenteredTree = ({onClick}: Props) => {
     return (
-        <Button variant='ghost'>
+        <Button variant='ghost' onClick={onClick}>
             <CursorIcon/>
         </Button>
     );

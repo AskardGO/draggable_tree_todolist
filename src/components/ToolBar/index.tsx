@@ -11,10 +11,10 @@ type Props = {
     onScale: (value: number) => void
     services: number
 
-    setOnCenter: () => void
+    onSetCenter: () => void
 };
 
-export const Toolbar = ({services}: Props) => {
+export const Toolbar = ({services, onSetCenter}: Props) => {
     return (
         <div className={styles.container}>
             <div>
@@ -22,7 +22,7 @@ export const Toolbar = ({services}: Props) => {
             </div>
             <div className={styles.actions}>
                 <ListView/>
-                <CenteredTree/>
+                <CenteredTree onClick={onSetCenter}/>
                 <Scale/>
             </div>
         </div>

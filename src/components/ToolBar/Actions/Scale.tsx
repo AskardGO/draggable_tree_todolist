@@ -35,7 +35,7 @@ export const Scale = (props: Props) => {
             <Button variant='ghost' className={styles.button_minus}>
                 -
             </Button>
-            <Select items={generateScaleValues()} selectedIndex={scaleValueIndex} onChange={() => {}}/>
+            <Select className={styles.select} items={generateScaleValues()} selectedIndex={scaleValueIndex} onChange={() => {}}/>
             <Button variant='ghost' className={styles.button_plus}>
                 +
             </Button>

@@ -17,11 +17,17 @@ type Props = {
 
 export const MainScreen = (props: Props) => {
 
+    let setCenterCb: (() => void) | null  = null;
+
+    const onSetCenter = () => {
+        setCenterCb && setCenterCb()
+    }
+
     return (
         <>
-            <Toolbar services={2} onScale={() => {}} setOnCenter={() => {}}/>
+            <Toolbar services={2} onScale={() => {}} onSetCenter={onSetCenter}/>
             <div className={styles.container}>
-                <Draggable>
+                <Draggable onSetCenter={(cb) => setCenterCb = cb}>
                     Hello world
                 </Draggable>
             </div>

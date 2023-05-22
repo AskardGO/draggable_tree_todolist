@@ -1,6 +1,14 @@
 import React, { useEffect, useRef } from "react";
+import {cleanup} from "@testing-library/react";
 
-function useDragger(id: string): void {
+type InitialPositionType = {
+    x: number,
+    y: number
+}
+
+type OnSetCenterType = (cb : () => void) => void
+
+function useDragger( id: string, onSetCenter?: OnSetCenterType, initialPosition?: InitialPositionType ): void {
 
     const isClicked = useRef<boolean>(false);
 
@@ -10,11 +18,42 @@ function useDragger(id: string): void {
         lastX: number,
         lastY: number
     }>({
-        startX: 0,
-        startY: 0,
+        startX: initialPosition?.x || 0,
+        startY: initialPosition?.y || 0,
         lastX: 0,
         lastY: 0
     })
+
+    const limits = {
+        minX: 10, maxX: window.innerWidth - 10,
+        minY: 10, maxY: window.innerHeight - 10
+    }
+
+    const centered = () => {
+
+        const target = document.getElementById(id);
+
+        if (!target) throw new Error("No element");
+
+        const centeredX = window.innerWidth / 2
+        const centeredY = window.innerHeight / 4
+
+        target.style.top = `${centeredY}px`;
+        target.style.left = `${centeredX}px`;
+        coords.current.startX = centeredX;
+        coords.current.startY = centeredY;
+        coords.current.lastX = centeredX;
+        coords.current.lastY = centeredY;
+
+        cleanup()
+
+    }
+
+    onSetCenter && onSetCenter(centered)
+
+    useEffect(() => {
+        centered();
+    }, [])
 
     useEffect(() => {
 

@@ -2,15 +2,19 @@
     display: flex;
     border-radius: .15rem;
     border: .1rem solid #a4b0be;
-    height: 6vh;
+    height: 50px;
+    margin: 0 .2rem;
 }
 
 .button_minus {
-    margin:0;
+    display: inline-flex !important;
+    margin:0 !important;
+    padding: 0 !important;
     border: 0;
     border-radius: 0;
     height: 100% !important;
     position: relative;
+
 }
 
 .button_minus::after {
@@ -20,11 +24,12 @@
     height: 80%;
     width: .1rem;
     border-radius: .15rem;
-    background-color: #a4b0be;
+    background-color: rgba(164, 176, 190, 0.6);
 }
 
 .button_plus {
-    margin: 0;
+    margin:0 !important;
+    padding: 0 !important;
     border: 0;
     border-radius: 0;
     height: 100% !important;
@@ -38,5 +43,10 @@
     height: 80%;
     width: .1rem;
     border-radius: .15rem;
-    background-color: #a4b0be;
+    background-color: rgba(164, 176, 190, 0.6);
+}
+
+.select {
+    height: 100%;
+    width: 5rem;
 }

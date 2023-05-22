@@ -10,9 +10,10 @@ type Props = {
     selectedIndex: number
     items: SelectOptionType[]
     onChange: (value: string) => void
+    className?: string
 };
 
-export const Select = ({items, onChange}: Props) => {
+export const Select = ({items, onChange, className}: Props) => {
 
     const options = items.map((el) => {
         return <option value={el.value}> <Button> {el.name} </Button> </option>
@@ -24,7 +25,7 @@ export const Select = ({items, onChange}: Props) => {
     }
 
     return (
-        <select className={styles.container} onChange={onChangeHandler}>
+        <select className={styles.container + ' ' + className} onChange={onChangeHandler}>
             { options }
         </select>
     );
